@@ -10,8 +10,10 @@ site_author: See contributors and authors at https://github.com/InfiniBrains/CCM
 
 nav:
   - Home: README.md
-  - Classes:
-      - courses/ethics/README.md
+  - Topics:
+      - courses/ReadMe.md
+      - Ethics: courses/ethics/README.md
+      - History: courses/HistoryOfAI/ReadMe.md
   - Blog:
       - blog/index.md
 

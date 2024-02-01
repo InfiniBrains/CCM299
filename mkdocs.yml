@@ -1,0 +1,298 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: Creative AI Course
+site_description: Creative AI Course at Champlain College
+site_url: https://ccm299com
+repo_url: https://github.com/InfiniBrains/CCM299
+repo_name: InfiniBrains/CCM229
+
+site_author: See contributors and authors at https://github.com/InfiniBrains/CCM299/graphs/contributors
+
+nav:
+  - Home: README.md
+  - Classes:
+      - courses/ethics/README.md
+  - Blog:
+      - blog/index.md
+
+docs_dir: .
+
+theme:
+  language: en
+  name: material
+  custom_dir: overrides
+  favicon: overrides/assets/logo.png
+  logo: overrides/assets/logo.png
+  features:
+    - attr_list
+    - md_in_html
+    - pymdownx.superfences
+    - announce.dismiss
+    - content.action.edit
+#    - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    - content.code.select
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+#    - navigation.instant
+#    - navigation.instant.prefetch
+    - navigation.prune # prune is incompatible with expand
+#    - navigation.sections
+    - navigation.tabs
+#    - navigation.tabs.sticky
+    - navigation.top
+#    - navigation.expand
+    - navigation.tracking
+    - navigation.path
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    - toc.integrate
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+#    - scheme: default
+#      primary: indigo
+#      accent: indigo
+#      toggle:
+#        icon: material/brightness-7
+#        name: Switch to dark mode
+#    - scheme: slate
+#      primary: indigo
+#      accent: indigo
+#      toggle:
+#        icon: material/brightness-4
+#        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+#  favicon: assets/favicon.png
+#  icon:
+#    repo: fontawesome/brands/git-alt
+#    logo: logo
+
+reveal:
+  path: reveal.js/dist
+  transition: slide
+  theme:
+    name: white.css
+    path: theme
+  plugin:
+    path: reveal.js/plugin
+
+edit_uri: edit/main/
+
+copyright: Copyright &copy; 2023 Tolstenko, Game Guild Community and Others
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.magiclink
+#      repo_url_shorthand: true
+#      user: InfiniBrains
+#      repo: Awesome-GameDev-Resources
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - mkdocs-revealjs
+  - social:
+      cards: true
+      cards_layout: default
+      enabled: true
+  - blog:
+#      blog_toc: true
+      blog_authors: true
+      post_url_date_format: yyyy/MM/dd
+      post_url_format: "{date}/{slug}"
+      post_date_format: short
+      blog_dir: blog
+      post_readtime_words_per_minute: 100
+      authors_file: blog/.authors.yml
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      comments_path: "#__comments"
+      categories:
+        - categories
+        - tags
+  - timetoread:
+      wpm: 100
+  - git-committers:
+      repository: InfiniBrains/Awesome-GameDev-Resources
+      branch: main
+      docs_path: ./
+      cache_dir: /tmp/cache/awesome-gamedev-resources
+#  - git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+      locale: en
+      timezone: America/New_York
+  - same-dir
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - exclude:
+      glob:
+        - .git/*
+        - .github/*
+        - node_modules/*
+        - buildDocs/*
+        - cmake-build-debug/*
+        - .cache
+        - site
+  - with-pdf:
+      author: InfiniBrains
+      copyright: Copyleft by InfiniBrains
+      render_js: true
+      headless_chrome_path: chromium
+      #cover: false
+      #back_cover: true
+      cover_title: Awesome GameDev Book
+      cover_subtitle: InfiniBrains Community Initiative
+      #custom_template_path: TEMPLATES PATH
+      #toc_title: TOC TITLE TEXT
+      #heading_shift: false
+      toc_level: 2
+      #ordered_chapter_level: 2
+      #excludes_children:
+      #    - 'release-notes/:upgrading'
+      #    - 'release-notes/:changelog'
+      exclude_pages:
+          - 'blog/'
+      #    - 'appendix/contribute/'
+      #convert_iframe:
+      #    - src: IFRAME SRC
+      #      img: POSTER IMAGE URL
+      #      text: ALTERNATE TEXT
+      #    - src: ...
+      two_columns_level: 2
+      #output_path: any-place/document.pdf
+      enabled_if_env: 'CI'
+      #debug_html: true
+      #show_anchors: true
+#      verbose: true
+#  - optimize
+  - glightbox
+
+extra:
+  privacy:
+    enabled: true
+  consent:
+    cookies:
+      smartlook: SmartLook
+    description: >-
+      This site uses cookies to provide you with a better user experience. By using this site you consent to our use of cookies.
+  generator: false
+  annotate:
+    json: [ .s2 ]
+  analytics:
+    provider: google
+    property: G-347541715
+#    feedback:
+#      title: Was this page helpful?
+#      ratings:
+#        - icon: material/emoticon-happy-outline
+#          name: This page was helpful
+#          data: 1
+#          note: >-
+#            Thanks for your feedback!
+#        - icon: material/emoticon-sad-outline
+#          name: This page could be improved
+#          data: 0
+#          note: >-
+#            Thanks for your feedback! Help us improve this page by
+#            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/InfiniBrains
+#    - icon: fontawesome/brands/gitter
+#      link: https://gitter.im/squidfunk/mkdocs-material
+#    - icon: fontawesome/brands/docker
+#      link: https://hub.docker.com/r/squidfunk/mkdocs-material/
+#    - icon: fontawesome/brands/python
+#      link: https://pypi.org/project/mkdocs-material/
+#    - icon: fontawesome/brands/twitter
+#      link: https://twitter.com/squidfunk
+
+#extra_javascript:
+#  - javascripts/katex.js
+#  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js
+#  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js
+#
+#extra_css:
+#  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+watch:
+  - courses
+  - blog
+
+exclude_docs: |
+  site/
+  cmake-build-**/
+  build/
+  .cache/
+  overrides/

@@ -1,0 +1,82 @@
+{
+  "name": "ccm299-course",
+  "version": "0.0.1",
+  "description": "Creative AI Course",
+  "main": "placeholder.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "placeholder",
+    "release": "npx -y semantic-release",
+    "prestyle": "cmake -S. -BbuildStyle -DENABLE_TEST_COVERAGE=ON -DENABLE_STANDALONE=OFF -DENABLE_DOCUMENTATION=OFF",
+    "style": "cmake --build buildStyle --target fix-format",
+    "prebuildall": "cmake -S. -Bbuild -DENABLE_TEST_COVERAGE=OFF -DENABLE_STANDALONE=ON -DENABLE_DOCUMENTATION=OFF",
+    "buildall": "cmake --build build -j20",
+    "generate:docs": "CI=1 cmake -S. -BbuildDocs -DENABLE_TEST_COVERAGE=OFF -DENABLE_STANDALONE=ON -DENABLE_DOCUMENTATION=ON",
+    "prebuild:docs": "CI=1 npm run generate:docs",
+    "build:docs": " CI=1 cmake --build buildDocs --target GenerateDocs",
+    "preserve": "npm run build:docs",
+    "serve": "npx http-serve site",
+    "serve:dev": "mkdocs serve",
+    "prelist:all": "cmake -S. -Bbuild",
+    "list:all": "cmake --build build --target help",
+    "git:pull": "git pull"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InfiniBrains/CCM299.git"
+  },
+  "keywords": [
+    "C++",
+    "CPP",
+    "Game Patterns",
+    "Game Programming",
+    "GameDev",
+    "WASM",
+    "EMSCRIPTEN",
+    "Game Engine"
+  ],
+  "author": "InfiniBrains",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/InfiniBrains/CCM299/issues"
+  },
+  "homepage": "https://infinibrains.github.io/InfiniBrains/CCM299",
+  "dependencies": {
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.7",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
+    "moxygen": "^0.8.0",
+    "rimraf": "^3.0.2"
+  },
+  "release": {
+    "branches": [
+      "master",
+      "main"
+    ],
+    "repositoryUrl": "https://github.com/InfiniBrains/CCM299",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md"
+          ]
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  }
+}

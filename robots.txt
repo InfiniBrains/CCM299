@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+sitemap: https://ccm229com/sitemap.xml

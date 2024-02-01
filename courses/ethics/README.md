@@ -1,6 +1,6 @@
-# header 1
+# Ethics in AI 
 
- text
+ Ethiscs in AI is a complex topic, and it is not only about the ethical use of AI, but also about the ethical development of AI.
 
 ## Header 2
 
